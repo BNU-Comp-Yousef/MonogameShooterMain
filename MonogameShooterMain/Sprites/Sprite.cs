@@ -163,17 +163,17 @@ namespace MonogameShooterMain.Sprites
             Origin = new Vector2(animation.FrameWidth / 2, animation.FrameHeight / 2);
         }
 
-        public override void Update(GameTime gameTime)
+        public override void Update(GameTime gt)
         {
 
         }
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public override void Draw(GameTime gt, SpriteBatch sb)
         {
             if (_texture != null)
-                spriteBatch.Draw(_texture, Position, null, Colour, _rotation, Origin, 1f, SpriteEffects.None, Layer);
+                sb.Draw(_texture, Position, null, Colour, _rotation, Origin, 1f, SpriteEffects.None, Layer);
             else if (_animationManager != null)
-                _animationManager.Draw(spriteBatch);
+                _animationManager.Draw(sb);
         }
 
         public bool Intersects(Sprite sprite)

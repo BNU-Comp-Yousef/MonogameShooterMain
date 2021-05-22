@@ -81,9 +81,9 @@ namespace MonogameShooterMain
             _nextState = state;
         }
 
-        protected override void Draw(GameTime gt, SpriteBatch sb)
+        protected override void Draw(GameTime gt)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(new Color(55, 55, 55));
 
             // TODO: Add your drawing code here
 
