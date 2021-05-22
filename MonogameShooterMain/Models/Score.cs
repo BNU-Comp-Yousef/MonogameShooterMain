@@ -4,7 +4,10 @@ using System.Text;
 
 namespace MonogameShooterMain.Models
 {
-    class Score
+    public class Score
     {
+        public string PlayerName { get; set; }
+
+        public int value { get; set; }
     }
 }
