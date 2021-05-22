@@ -8,7 +8,7 @@ using MonogameShooterMain.States;
 
 namespace MonogameShooterMain
 {
-    public class ShooterGame : Game
+    public class Shooter : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
@@ -18,7 +18,10 @@ namespace MonogameShooterMain
         public static int ScreenWidth = 1280;
         public static int ScreenHeight = 720;
 
-        public ShooterGame()
+        private State _currentState;
+        private State _nextState;
+
+        public Shooter()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -43,26 +46,50 @@ namespace MonogameShooterMain
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            _currentState = new MenuState(this, Content);
+            _currentState.LoadContent();
+
+            _nextState = null;
+
             // TODO: use this.Content to load your game content here
         }
 
-        protected override void Update(GameTime gameTime)
+        protected override void Update(GameTime gt)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            //Exit();
 
             // TODO: Add your update logic here
 
-            base.Update(gameTime);
+            if (_nextState != null)
+            {
+                _currentState = _nextState;
+                _currentState.LoadContent();
+
+                _nextState = null;
+            }
+
+            _currentState.Update(gt);
+
+            _currentState.PostUpdate(gt);
+
+            base.Update(gt);
         }
 
-        protected override void Draw(GameTime gameTime)
+        public void ChangeState(State state)
+        {
+            _nextState = state;
+        }
+
+        protected override void Draw(GameTime gt, SpriteBatch sb)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
 
-            base.Draw(gameTime);
+            _currentState.Draw(gt, sb);
+
+            base.Draw(gt);
         }
     }
 }

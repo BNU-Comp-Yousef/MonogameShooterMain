@@ -9,11 +9,11 @@ namespace MonogameShooterMain.States
 {
     public abstract class State
     {
-        protected Game1 _game;
+        protected Shooter _game;
 
         protected ContentManager _content;
 
-        public State(Game1 g, ContentManager content)
+        public State(Shooter g, ContentManager content)
         {
             _game = g;
 

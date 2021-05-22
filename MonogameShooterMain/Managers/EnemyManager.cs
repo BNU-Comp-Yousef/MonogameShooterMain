@@ -51,7 +51,7 @@ namespace MonogameShooterMain.Managers
 
         public Enemy GetEnemy()
         {
-            var texture = _textures[ShooterGame.Random.Next(0, _textures.Count)];
+            var texture = _textures[Shooter.Random.Next(0, _textures.Count)];
 
             return new Enemy(texture)
             {
@@ -59,9 +59,9 @@ namespace MonogameShooterMain.Managers
                 Bullet = Bullet,
                 Health = 5,
                 Layer = 0.2f,
-                Position = new Vector2(ShooterGame.ScreenWidth + texture.Width, 
-                ShooterGame.Random.Next(0, ShooterGame.ScreenHeight)),
-                Speed = 2 + (float)ShooterGame.Random.NextDouble(),
+                Position = new Vector2(Shooter.ScreenWidth + texture.Width, 
+                Shooter.Random.Next(0, Shooter.ScreenHeight)),
+                Speed = 2 + (float)Shooter.Random.NextDouble(),
             };
         }
     }

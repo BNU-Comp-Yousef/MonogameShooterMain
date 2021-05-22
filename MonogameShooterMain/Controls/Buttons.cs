@@ -66,25 +66,25 @@ namespace MonogameShooterMain.Controls
             PenColour = Color.Black;
         }
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public override void Draw(GameTime gt, SpriteBatch sb)
         {
             var colour = Color.White;
 
             if (_isHovering)
                 colour = Color.Gray;
 
-            spriteBatch.Draw(_texture, Position, null, colour, 0f, Origin, 1f, SpriteEffects.None, Layer);
+            sb.Draw(_texture, Position, null, colour, 0f, Origin, 1f, SpriteEffects.None, Layer);
 
             if (!string.IsNullOrEmpty(Text))
             {
                 var x = (Rectangle.X + (Rectangle.Width / 2)) - (_font.MeasureString(Text).X / 2);
                 var y = (Rectangle.Y + (Rectangle.Height / 2)) - (_font.MeasureString(Text).Y / 2);
 
-                spriteBatch.DrawString(_font, Text, new Vector2(x, y), PenColour, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, Layer + 0.01f);
+                sb.DrawString(_font, Text, new Vector2(x, y), PenColour, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, Layer + 0.01f);
             }
         }
 
-        public override void Update(GameTime gameTime)
+        public override void Update(GameTime gt)
         {
             _previousMouse = _currentMouse;
             _currentMouse = Mouse.GetState();
