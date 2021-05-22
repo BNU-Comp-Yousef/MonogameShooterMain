@@ -1,24 +1,40 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
+using System.Collections.Generic;
+using MonogameShooterMain.Sprites;
+using MonogameShooterMain.States;
 
 namespace MonogameShooterMain
 {
-    public class Game1 : Game
+    public class ShooterGame : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        public Game1()
+        public static Random Random;
+
+        public static int ScreenWidth = 1280;
+        public static int ScreenHeight = 720;
+
+        public ShooterGame()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            IsMouseVisible = true;
+            
         }
 
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            Random = new Random();
+
+            _graphics.PreferredBackBufferWidth = ScreenWidth;
+            _graphics.PreferredBackBufferHeight = ScreenHeight;
+            _graphics.ApplyChanges();
+
+            IsMouseVisible = true;
 
             base.Initialize();
         }
