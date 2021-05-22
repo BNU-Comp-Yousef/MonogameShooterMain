@@ -4,7 +4,8 @@ using System.Text;
 
 namespace MonogameShooterMain.Sprites
 {
-    class CollidableI
+    public interface CollidableI
     {
+        void CollideOn(Sprite sp);
     }
 }
