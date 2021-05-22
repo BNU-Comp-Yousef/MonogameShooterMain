@@ -10,6 +10,8 @@ namespace MonogameShooterMain.Sprites
     {
         private float _timer;
 
+        public Explosion Explosion;
+
         public float LifeSpan { get; set; }
 
         public Vector2 Velocity { get; set; }
@@ -23,14 +25,53 @@ namespace MonogameShooterMain.Sprites
         {
             _timer += (float)gt.ElapsedGameTime.TotalSeconds;
 
-            if (_timer >= LifeSpan)
+            if(_timer >= LifeSpan)
                 IsRemoved = true;
             Position += Velocity;
         }
 
         public void CollideOn(Sprite sp)
         {
-            throw new NotImplementedException();
+            // Bullets won't collide with eachother.
+            if (sp is Bullets)
+                return;
+
+            // Enemies won't be able to shoot eachother.
+            if (sp is Enemy && this.Parent is Enemy)
+                return;
+
+            // Players won't be able to shoot eachother. 
+            if (sp is MainPlayer && this.Parent is MainPlayer)
+                return;
+
+            // Bullets won't hit player if they're dead.
+            if (sp is MainPlayer && ((MainPlayer)sp).IsDead)
+                return;
+
+            if(sp is Enemy && this.Parent is MainPlayer)
+            {
+                IsRemoved = true;
+                AddExplosion();
+            }
+
+            if(sp is MainPlayer && this.Parent is Enemy)
+            {
+                IsRemoved = true;
+                AddExplosion();
+            }
+
+           // throw new NotImplementedException();
+        }
+
+        public void AddExplosion()
+        {
+            if (Explosion == null)
+                return;
+
+            var explosion = Explosion.Clone() as Explosion;
+            explosion.Position = this.Position;
+
+            Children.Add(explosion);
         }
     }
 }
