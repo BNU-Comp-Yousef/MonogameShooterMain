@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MonogameShooterMain.Sprites;
+using System.Collections.Generic;
 
 namespace MonogameShooterMain.Managers
 {
@@ -41,7 +39,7 @@ namespace MonogameShooterMain.Managers
 
             CanAdd = false;
 
-            if(_timer > SpawnTimer)
+            if (_timer > SpawnTimer)
             {
                 CanAdd = true;
 
@@ -59,7 +57,7 @@ namespace MonogameShooterMain.Managers
                 Bullet = Bullet,
                 Health = 5,
                 Layer = 0.2f,
-                Position = new Vector2(Shooter.ScreenWidth + texture.Width, 
+                Position = new Vector2(Shooter.ScreenWidth + texture.Width,
                 Shooter.Random.Next(0, Shooter.ScreenHeight)),
                 Speed = 2 + (float)Shooter.Random.NextDouble(),
                 //ShootingTimer = 1.5f + (float)Shooter.Random.NextDouble(),

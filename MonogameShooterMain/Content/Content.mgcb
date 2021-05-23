@@ -13,7 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin Background/GameBackground.png
+#begin Background/Game.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -23,9 +23,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Background/GameBackground.png;Background/Game.png
+/build:Background/Game.png
 
-#begin Background/SASG MENU.png
+#begin Background/MainMenu.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -35,7 +35,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Background/SASG MENU.png;Background/MainMenu.png
+/build:Background/MainMenu.png
 
 #begin Bullet.png
 /importer:TextureImporter
@@ -61,7 +61,7 @@
 /processorParam:TextureFormat=Color
 /build:Button.png
 
-#begin Explosions.png
+#begin Explosion.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -71,7 +71,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Explosions.png;Explosion.png
+/build:Explosion.png
 
 #begin Font.spritefont
 /importer:FontDescriptionImporter
@@ -80,7 +80,7 @@
 /processorParam:TextureFormat=Compressed
 /build:Font.spritefont
 
-#begin Ships/Enemy.png
+#begin Ships/Enemy_1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -90,9 +90,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Ships/Enemy.png;Ships/Enemy_1.png
+/build:Ships/Enemy_1.png
 
-#begin Ships/Enemy1.png
+#begin Ships/Enemy_2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -102,9 +102,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Ships/Enemy1.png;Ships/Enemy_2.png
+/build:Ships/Enemy_2.png
 
-#begin Ships/player1.png
+#begin Ships/player.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -114,5 +114,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Ships/player1.png;Ships/Player.png
+/build:Ships/player.png
 

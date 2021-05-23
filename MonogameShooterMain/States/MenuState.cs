@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using MonogameShooterMain.Sprites;
 using MonogameShooterMain.Controls;
+using MonogameShooterMain.Sprites;
+using System;
+using System.Collections.Generic;
 
 
 namespace MonogameShooterMain.States
@@ -14,8 +13,8 @@ namespace MonogameShooterMain.States
     {
         private List<Component> _components;
 
-        public MenuState(Shooter g, ContentManager content)
-          : base(g, content)
+        public MenuState(Shooter game, ContentManager content)
+          : base(game, content)
         {
         }
 
@@ -31,28 +30,28 @@ namespace MonogameShooterMain.States
           Layer = 0f,
           Position = new Vector2(Shooter.ScreenWidth / 2, Shooter.ScreenHeight / 2),
         },
-        new Buttons(buttonTexture, buttonFont)
+        new Button(buttonTexture, buttonFont)
         {
           Text = "1 Player",
           Position = new Vector2(Shooter.ScreenWidth / 2, 400),
           Click = new EventHandler(Button_1Player_Clicked),
           Layer = 0.1f
         },
-        new Buttons(buttonTexture, buttonFont)
+        new Button(buttonTexture, buttonFont)
         {
           Text = "2 Players",
           Position = new Vector2(Shooter.ScreenWidth / 2, 440),
           Click = new EventHandler(Button_2Player_Clicked),
           Layer = 0.1f
         },
-        new Buttons(buttonTexture, buttonFont)
+        new Button(buttonTexture, buttonFont)
         {
           Text = "Highscores",
           Position = new Vector2(Shooter.ScreenWidth / 2, 480),
           Click = new EventHandler(Button_Highscores_Clicked),
           Layer = 0.1f
         },
-        new Buttons(buttonTexture, buttonFont)
+        new Button(buttonTexture, buttonFont)
         {
           Text = "Quit",
           Position = new Vector2(Shooter.ScreenWidth / 2, 520),

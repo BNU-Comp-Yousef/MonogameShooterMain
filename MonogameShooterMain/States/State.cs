@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -13,9 +10,9 @@ namespace MonogameShooterMain.States
 
         protected ContentManager _content;
 
-        public State(Shooter g, ContentManager content)
+        public State(Shooter game, ContentManager content)
         {
-            _game = g;
+            _game = game;
 
             _content = content;
         }

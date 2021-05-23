@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
 
 namespace MonogameShooterMain.Sprites
 {
@@ -25,7 +22,7 @@ namespace MonogameShooterMain.Sprites
         {
             _timer += (float)gt.ElapsedGameTime.TotalSeconds;
 
-            if(_timer >= LifeSpan)
+            if (_timer >= LifeSpan)
                 IsRemoved = true;
             Position += Velocity;
         }
@@ -48,19 +45,19 @@ namespace MonogameShooterMain.Sprites
             if (sp is MainPlayer && ((MainPlayer)sp).IsDead)
                 return;
 
-            if(sp is Enemy && this.Parent is MainPlayer)
+            if (sp is Enemy && this.Parent is MainPlayer)
             {
                 IsRemoved = true;
                 AddExplosion();
             }
 
-            if(sp is MainPlayer && this.Parent is Enemy)
+            if (sp is MainPlayer && this.Parent is Enemy)
             {
                 IsRemoved = true;
                 AddExplosion();
             }
 
-           // throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         public void AddExplosion()

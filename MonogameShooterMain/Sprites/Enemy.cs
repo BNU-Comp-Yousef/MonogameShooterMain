@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
 
 namespace MonogameShooterMain.Sprites
 {
@@ -28,27 +25,27 @@ namespace MonogameShooterMain.Sprites
 
             Position += new Vector2(-Speed, 0);
             // If the enemy goes too far to left side of the screen.
-            if(Position.X < -_texture.Width)
+            if (Position.X < -_texture.Width)
                 IsRemoved = true;
         }
 
         public override void CollideOn(Sprite sp)
         {
             // If we crash into a player that is still alive.
-            if(sp is MainPlayer && !((MainPlayer)sp).IsDead)
+            if (sp is MainPlayer && !((MainPlayer)sp).IsDead)
             {
                 ((MainPlayer)sp).Score.value++;
-                
+
                 // This will remove the ship completely.
                 IsRemoved = true;
             }
 
             // This code was made in the case we hit a bullet that belongs to a player.
-            if(sp is Bullets && sp.Parent is MainPlayer)
+            if (sp is Bullets && sp.Parent is MainPlayer)
             {
                 Health--;
 
-                if(Health<=0)
+                if (Health <= 0)
                 {
                     IsRemoved = true;
 

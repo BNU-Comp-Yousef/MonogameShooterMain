@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MonogameShooterMain.Models;
 using Microsoft.Xna.Framework.Input;
+using MonogameShooterMain.Models;
 
 
 namespace MonogameShooterMain.Sprites
@@ -76,7 +73,7 @@ namespace MonogameShooterMain.Sprites
 
             Position += velocity;
             // Will keep the ship between the 2 points.
-           // Position = Vector2.Clamp(Position, new Vector2(80, 0), new Vector2(Game1.ScreenWidth / 4, Game1.ScreenHeight));
+            // Position = Vector2.Clamp(Position, new Vector2(80, 0), new Vector2(Game1.ScreenWidth / 4, Game1.ScreenHeight));
         }
 
         public override void Draw(GameTime gt, SpriteBatch sb)

@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace MonogameShooterMain.Controls
 {
-    public class Buttons : Component
+    public class Button : Component
     {
         #region Fields
 
@@ -57,7 +55,7 @@ namespace MonogameShooterMain.Controls
 
         #region Methods
 
-        public Buttons(Texture2D texture, SpriteFont font)
+        public Button(Texture2D texture, SpriteFont font)
         {
             _texture = texture;
 

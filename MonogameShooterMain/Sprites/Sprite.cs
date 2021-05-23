@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonogameShooterMain.Managers;
 using MonogameShooterMain.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 
 namespace MonogameShooterMain.Sprites

@@ -1,17 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using System;
-using System.Collections.Generic;
-using MonogameShooterMain.Sprites;
 using MonogameShooterMain.States;
+using System;
 
 namespace MonogameShooterMain
 {
     public class Shooter : Game
     {
         private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        private SpriteBatch sb;
 
         public static Random Random;
 
@@ -25,7 +22,7 @@ namespace MonogameShooterMain
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            
+
         }
 
         protected override void Initialize()
@@ -44,7 +41,7 @@ namespace MonogameShooterMain
 
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            sb = new SpriteBatch(GraphicsDevice);
 
             _currentState = new MenuState(this, Content);
             _currentState.LoadContent();
@@ -87,7 +84,7 @@ namespace MonogameShooterMain
 
             // TODO: Add your drawing code here
 
-           // _currentState.Draw(gt, sb);
+            _currentState.Draw(gt, sb);
 
             base.Draw(gt);
         }

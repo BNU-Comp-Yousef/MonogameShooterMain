@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MonogameShooterMain.Controls;
 using MonogameShooterMain.Managers;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MonogameShooterMain.States
 {
@@ -35,7 +33,7 @@ namespace MonogameShooterMain.States
 
             _components = new List<Component>()
       {
-        new Controls.Buttons(buttonTexture, buttonFont)
+        new Controls.Button(buttonTexture, buttonFont)
         {
           Text = "Main Menu",
           Position = new Vector2(Shooter.ScreenWidth / 2, 560),

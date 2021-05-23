@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MonogameShooterMain.Models;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonogameShooterMain.Models;
+using System;
 
 namespace MonogameShooterMain.Managers
 {
@@ -63,7 +61,7 @@ namespace MonogameShooterMain.Managers
         {
             _timer += (float)gt.ElapsedGameTime.TotalSeconds;
 
-            if(_timer > _animation.FrameSpeed)
+            if (_timer > _animation.FrameSpeed)
             {
                 _timer = 0f;
 
