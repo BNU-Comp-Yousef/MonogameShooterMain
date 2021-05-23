@@ -87,7 +87,7 @@ namespace MonogameShooterMain
 
             // TODO: Add your drawing code here
 
-            _currentState.Draw(gt, sb);
+           // _currentState.Draw(gt, sb);
 
             base.Draw(gt);
         }

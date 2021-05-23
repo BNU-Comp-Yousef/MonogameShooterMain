@@ -26,8 +26,8 @@ namespace MonogameShooterMain.Managers
         {
             _textures = new List<Texture2D>()
             {
-                content.Load<Texture2D>("Ships/Enemy"),
-                content.Load<Texture2D>("Ships/Enemy1"),
+                content.Load<Texture2D>("Ships/Enemy_1"),
+                content.Load<Texture2D>("Ships/Enemy_2"),
             };
 
             EnemiesMax = 10;
@@ -62,6 +62,7 @@ namespace MonogameShooterMain.Managers
                 Position = new Vector2(Shooter.ScreenWidth + texture.Width, 
                 Shooter.Random.Next(0, Shooter.ScreenHeight)),
                 Speed = 2 + (float)Shooter.Random.NextDouble(),
+                //ShootingTimer = 1.5f + (float)Shooter.Random.NextDouble(),
             };
         }
     }
