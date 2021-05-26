@@ -6,6 +6,8 @@ using MonogameShooterMain.Sprites;
 using System;
 using System.Collections.Generic;
 
+// This Class is created to be the first run class when trying to start the game, it loads up the 
+// Main menu which is then used to access the game, highscores or to simply quit.
 
 namespace MonogameShooterMain.States
 {
@@ -17,6 +19,9 @@ namespace MonogameShooterMain.States
           : base(game, content)
         {
         }
+        
+        // The code below was written to load up the certain parts the game that i want which firstly,
+        // Is the main menu.
 
         public override void LoadContent()
         {
@@ -24,42 +29,42 @@ namespace MonogameShooterMain.States
             var buttonFont = _content.Load<SpriteFont>("Font");
 
             _components = new List<Component>()
-      {
+           {
         new Sprite(_content.Load<Texture2D>("Background/MainMenu"))
-        {
+           {
           Layer = 0f,
           Position = new Vector2(Shooter.ScreenWidth / 2, Shooter.ScreenHeight / 2),
-        },
+          },
         new Button(buttonTexture, buttonFont)
-        {
+           {
           Text = "1 Player",
           Position = new Vector2(Shooter.ScreenWidth / 2, 400),
           Click = new EventHandler(Button_1Player_Clicked),
           Layer = 0.1f
-        },
+          },
         new Button(buttonTexture, buttonFont)
-        {
+           {
           Text = "2 Players",
           Position = new Vector2(Shooter.ScreenWidth / 2, 440),
           Click = new EventHandler(Button_2Player_Clicked),
           Layer = 0.1f
-        },
+          },
         new Button(buttonTexture, buttonFont)
-        {
+           {
           Text = "Highscores",
           Position = new Vector2(Shooter.ScreenWidth / 2, 480),
           Click = new EventHandler(Button_Highscores_Clicked),
           Layer = 0.1f
-        },
+          },
         new Button(buttonTexture, buttonFont)
-        {
+           {
           Text = "Quit",
           Position = new Vector2(Shooter.ScreenWidth / 2, 520),
           Click = new EventHandler(Button_Quit_Clicked),
           Layer = 0.1f
-        },
-      };
-        }
+          },
+          };
+          }
 
         private void Button_1Player_Clicked(object sender, EventArgs args)
         {

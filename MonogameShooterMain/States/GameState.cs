@@ -30,8 +30,8 @@ namespace MonogameShooterMain.States
 
         public override void LoadContent()
         {
-            var playerTexture = _content.Load<Texture2D>("Ships/Player");
             var bulletTexture = _content.Load<Texture2D>("Bullet");
+            
 
             _font = _content.Load<SpriteFont>("Font");
 
@@ -45,7 +45,6 @@ namespace MonogameShooterMain.States
           Position = new Vector2(Shooter.ScreenWidth / 2, Shooter.ScreenHeight / 2),
         }
         };
-
             var bulletPrefab = new Bullets(bulletTexture)
             {
                 Explosion = new Explosion(new Dictionary<string, Models.Animation>()
@@ -55,64 +54,46 @@ namespace MonogameShooterMain.States
                 {
                     Layer = 0.5f,
                 }
-            };
-
-            if (PlayerCount >= 1)
+            };;
+            if (PlayerCount ==1)
             {
-                _sprites.Add(new MainPlayer(playerTexture)
-                {
-                    Colour = Color.Blue,
-                    Position = new Vector2(100, 50),
-                    Layer = 0.3f,
-                    Bullet = bulletPrefab,
-                    Input = new Models.Input()
-                    {
-                        Up = Keys.W,
-                        Down = Keys.S,
-                        Left = Keys.A,
-                        Right = Keys.D,
-                        Shoot = Keys.Space,
-                    },
-                    Health = 10,
-                    Score = new Models.Score()
-                    {
-                        PlayerName = "Player 1",
-                        value = 0,
-                    },
-                });
+                AddPlayer(1);
             }
-
-            if (PlayerCount >= 2)
-            {
-                _sprites.Add(new MainPlayer(playerTexture)
-                {
-                    Colour = Color.Green,
-                    Position = new Vector2(100, 200),
-                    Layer = 0.4f,
-                    Bullet = bulletPrefab,
-                    Input = new Models.Input()
-                    {
-                        Up = Keys.Up,
-                        Down = Keys.Down,
-                        Left = Keys.Left,
-                        Right = Keys.Right,
-                        Shoot = Keys.Enter,
-                    },
-                    Health = 10,
-                    Score = new Models.Score()
-                    {
-                        PlayerName = "Player 2",
-                        value = 0,
-                    },
-                });
-            }
-
-            _players = _sprites.Where(c => c is MainPlayer).Select(c => (MainPlayer)c).ToList();
+             _players = _sprites.Where(c => c is MainPlayer).Select(c => (MainPlayer)c).ToList();
 
             _enemyManager = new EnemyManager(_content)
             {
                 Bullet = bulletPrefab,
             };
+        }
+        // Added AddPlayer command to change player settings depending on which player is playing.
+         public  void AddPlayer(int PlayerNum)
+        {
+            var playerTexture = _content.Load<Texture2D>("Ships/Player");
+            var bulletTexture = _content.Load<Texture2D>("Bullet");
+            var bulletPrefab = new Bullets(bulletTexture);
+
+            _sprites.Add(new MainPlayer(playerTexture)
+            {
+                Colour =PlayerNum==1? Color.Green : Color.Blue,
+                Position =PlayerNum==1? new Vector2(100, 200) : new Vector2(100, 50),
+                Layer = 0.4f,
+                Bullet = bulletPrefab,
+                Input = new Models.Input()
+                {
+                    Up = Keys.Up,
+                    Down = Keys.Down,
+                    Left = Keys.Left,
+                    Right = Keys.Right,
+                    Shoot = Keys.Enter,
+                },
+                Health = 10,
+                Score = new Models.Score()
+                {
+                    PlayerName =PlayerNum==1? "Player 1" : "Player 2",
+                    value = 0,
+                },
+            });
         }
 
         public override void Update(GameTime gameTime)
