@@ -58,7 +58,7 @@ namespace MonogameShooterMain.States
             if (PlayerCount ==1)
             {
                 AddPlayer(1);
-            }
+            } //Lambda Code used so continuation occurs when specific code is called.
              _players = _sprites.Where(c => c is MainPlayer).Select(c => (MainPlayer)c).ToList();
 
             _enemyManager = new EnemyManager(_content)
