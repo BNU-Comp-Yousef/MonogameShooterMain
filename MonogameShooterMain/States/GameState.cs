@@ -27,7 +27,7 @@ namespace MonogameShooterMain.States
           : base(game, content)
         {
         }
-
+        // LoadContent command will load all the game commands when called including explosions and animations.
         public override void LoadContent()
         {
             var bulletTexture = _content.Load<Texture2D>("Bullet");
@@ -75,17 +75,17 @@ namespace MonogameShooterMain.States
 
             _sprites.Add(new MainPlayer(playerTexture)
             {
-                Colour =PlayerNum==1? Color.Green : Color.Blue,
+                Colour =PlayerNum==1? Color.Blue : Color.Green,
                 Position =PlayerNum==1? new Vector2(100, 200) : new Vector2(100, 50),
-                Layer = 0.4f,
+                Layer =PlayerNum==1? 0.3f : 0.4f,
                 Bullet = bulletPrefab,
                 Input = new Models.Input()
                 {
-                    Up = Keys.Up,
-                    Down = Keys.Down,
-                    Left = Keys.Left,
-                    Right = Keys.Right,
-                    Shoot = Keys.Enter,
+                    Up =PlayerNum==1? Keys.W : Keys.Up,
+                    Down =PlayerNum==1? Keys.S : Keys.Down,
+                    Left = PlayerNum == 1 ? Keys.A : Keys.Left,
+                    Right = PlayerNum == 1 ? Keys.D : Keys.Right,
+                    Shoot = PlayerNum == 1 ? Keys.Space : Keys.Enter,
                 },
                 Health = 10,
                 Score = new Models.Score()
@@ -95,7 +95,7 @@ namespace MonogameShooterMain.States
                 },
             });
         }
-
+        // update code updates the load times and movement for all ships.
         public override void Update(GameTime gameTime)
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
@@ -110,7 +110,7 @@ namespace MonogameShooterMain.States
                 _sprites.Add(_enemyManager.GetEnemy());
             }
         }
-
+        // PostUpdate updates all after sprite movement.
         public override void PostUpdate(GameTime gameTime)
         {
             var collidableSprites = _sprites.Where(c => c is CollidableI);

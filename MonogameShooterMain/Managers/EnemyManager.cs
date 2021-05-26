@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 namespace MonogameShooterMain.Managers
 {
+    //This class calls the enemy sprites and adds their textures as well as all the movement and set up they need.
     public class EnemyManager
     {
         private float _timer;
@@ -46,7 +47,7 @@ namespace MonogameShooterMain.Managers
                 _timer = 0f;
             }
         }
-
+        // This function calls an enemy with all the variables it needs.
         public Enemy GetEnemy()
         {
             var texture = _textures[Shooter.Random.Next(0, _textures.Count)];

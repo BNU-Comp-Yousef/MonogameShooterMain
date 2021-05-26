@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MonogameShooterMain.Sprites
 {
+    //This class sets up all the bullet movements when shooting from the ship sprite.
     public class Bullets : Sprite, CollidableI
     {
         private float _timer;

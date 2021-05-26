@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 
 namespace MonogameShooterMain.Managers
 {
+    //This class uses xml to keep tabs on all the scores and updates them relevant to the game highscores.
     public class ScoreManager
     {
         private static string _fileName = "scores.xml";
@@ -50,7 +51,7 @@ namespace MonogameShooterMain.Managers
                 return new ScoreManager(scores);
             }
         }
-
+        //This command updates the highscore to the top 10 high scores set.
         public void UpdateHighscores()
         {
             HighScores = Scores.Take(10).ToList();

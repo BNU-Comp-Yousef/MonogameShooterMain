@@ -5,6 +5,7 @@ using System;
 
 namespace MonogameShooterMain.Controls
 {
+    //This class was made to add all the buttons for the mouse to set up the game.
     public class Button : Component
     {
         #region Fields

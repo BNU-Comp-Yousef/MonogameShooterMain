@@ -5,6 +5,8 @@ using System;
 
 namespace MonogameShooterMain.Managers
 {
+    //This Class sets up all the animations i need for all my sprites as well as set up the code for cloning
+    // any ships or sprites that need cloning.
     public class AnimationsManager : ICloneable
     {
         private Animation _animation;

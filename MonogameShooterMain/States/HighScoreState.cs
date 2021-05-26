@@ -9,6 +9,7 @@ using System.Linq;
 
 namespace MonogameShooterMain.States
 {
+    //Class that shows all the highscores when clicked on on the main menu.
     public class HighScoreState : State
     {
         private List<Component> _components;

@@ -5,6 +5,8 @@ using System;
 
 namespace MonogameShooterMain
 {
+    //The main Class for my shooter game, Written By: Yousef Abobaker.
+    // This class is the main class for running the game and gets called first when starting it up.
     public class Shooter : Game
     {
         private GraphicsDeviceManager _graphics;
@@ -24,7 +26,7 @@ namespace MonogameShooterMain
             Content.RootDirectory = "Content";
 
         }
-
+        //Initialises the game by booting up the screenwidth and screenheight.
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
@@ -38,7 +40,7 @@ namespace MonogameShooterMain
 
             base.Initialize();
         }
-
+        // Loads up all the graphics and menu states.
         protected override void LoadContent()
         {
             sb = new SpriteBatch(GraphicsDevice);
@@ -72,7 +74,7 @@ namespace MonogameShooterMain
 
             base.Update(gt);
         }
-
+        // Changes state of the game relevant to what is pressed.
         public void ChangeState(State state)
         {
             _nextState = state;

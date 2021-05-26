@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MonogameShooterMain.States
 {
+    //This class loads up all the game states relevant to the order the code is set up in.
     public abstract class State
     {
         protected Shooter _game;
