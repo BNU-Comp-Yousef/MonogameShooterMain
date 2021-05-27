@@ -122,3 +122,9 @@
 /processorParam:Quality=Best
 /build:Sound/Deep.mp3
 
+#begin Sound/flame.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Sound/flame.mp3
+
