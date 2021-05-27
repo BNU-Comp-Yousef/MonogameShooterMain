@@ -10,7 +10,7 @@ namespace MonogameShooterMain
 {
     //The main Class for my shooter game, Written By: Yousef Abobaker.
     // This class is the main class for running the game and gets called first when starting it up.
-    public class Shooter : Game
+    public class ShooterGame : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch sb;
@@ -26,7 +26,7 @@ namespace MonogameShooterMain
         private Song backgroundMusic;
         private SoundEffect flameEffect;
 
-        public Shooter()
+        public ShooterGame()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -55,7 +55,8 @@ namespace MonogameShooterMain
             _currentState.LoadContent();
             backgroundMusic = Content.Load<Song>("Sound/Deep");
             MediaPlayer.Play(backgroundMusic);
-            flameEffect = SoundManager.GetSoundEffect("flame");
+            flameEffect = Content.Load<SoundEffect>("Sound/flame");
+            flameEffect.Play();
 
 
             _nextState = null;

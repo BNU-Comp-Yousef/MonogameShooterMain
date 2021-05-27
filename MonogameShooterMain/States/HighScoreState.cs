@@ -18,7 +18,7 @@ namespace MonogameShooterMain.States
 
         private ScoreManager _scoreManager;
 
-        public HighScoreState(Shooter g, ContentManager content)
+        public HighScoreState(ShooterGame g, ContentManager content)
           : base(g, content)
         {
         }
@@ -37,7 +37,7 @@ namespace MonogameShooterMain.States
         new Controls.Button(buttonTexture, buttonFont)
         {
           Text = "Main Menu",
-          Position = new Vector2(Shooter.ScreenWidth / 2, 560),
+          Position = new Vector2(ShooterGame.ScreenWidth / 2, 560),
           Click = new EventHandler(Button_MainMenu_Clicked),
           Layer = 0.1f
         },

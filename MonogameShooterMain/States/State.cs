@@ -7,11 +7,11 @@ namespace MonogameShooterMain.States
     //This class loads up all the game states relevant to the order the code is set up in.
     public abstract class State
     {
-        protected Shooter _game;
+        protected ShooterGame _game;
 
         protected ContentManager _content;
 
-        public State(Shooter game, ContentManager content)
+        public State(ShooterGame game, ContentManager content)
         {
             _game = game;
 

@@ -7,7 +7,7 @@ namespace MonogameShooterMain
         [STAThread]
         static void Main()
         {
-            using (var game = new Shooter())
+            using (var game = new ShooterGame())
                 game.Run();
         }
     }

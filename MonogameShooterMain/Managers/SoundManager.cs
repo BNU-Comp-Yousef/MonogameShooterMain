@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Xna.Framework.Media;
 
 namespace MonogameShooterMain.Managers
 {
@@ -13,7 +14,7 @@ namespace MonogameShooterMain.Managers
 
         public static void LoadContent(ContentManager content)
         {
-            SoundEffects.Add("Flame", content.Load<SoundEffect>("Sound/flame"));
+            SoundEffects.Add("flame", content.Load<SoundEffect>("Sound/flame"));
         }
 
         public static SoundEffect GetSoundEffect(string effect)

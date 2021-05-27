@@ -23,11 +23,15 @@ namespace MonogameShooterMain.States
 
         public int PlayerCount;
 
-        public GameState(Shooter game, ContentManager content)
+        public GameState(ShooterGame game, ContentManager content)
           : base(game, content)
         {
         }
-        // LoadContent command will load all the game commands when called including explosions and animations.
+        
+
+        /// <summary>
+        ///  LoadContent command will load all the game commands when called including explosions and animations.
+        /// </summary>
         public override void LoadContent()
         {
             var bulletTexture = _content.Load<Texture2D>("Bullet");
@@ -41,7 +45,7 @@ namespace MonogameShooterMain.States
                  new Sprite(_content.Load<Texture2D>("Background/Game"))
                  {
                     Layer = 0.0f,
-                    Position = new Vector2(Shooter.ScreenWidth / 2, Shooter.ScreenHeight / 2),
+                    Position = new Vector2(ShooterGame.ScreenWidth / 2, ShooterGame.ScreenHeight / 2),
                  }
             };
             
@@ -83,9 +87,9 @@ namespace MonogameShooterMain.States
                 {
                     Up =PlayerNum==1? Keys.W : Keys.Up,
                     Down =PlayerNum==1? Keys.S : Keys.Down,
-                    Left = PlayerNum == 1 ? Keys.A : Keys.Left,
-                    Right = PlayerNum == 1 ? Keys.D : Keys.Right,
-                    Shoot = PlayerNum == 1 ? Keys.Space : Keys.Enter,
+                    Left = PlayerNum == 1? Keys.A : Keys.Left,
+                    Right = PlayerNum == 1? Keys.D : Keys.Right,
+                    Shoot = PlayerNum == 1? Keys.Space : Keys.Enter,
                 },
                 Health = 10,
                 Score = new Models.Score()
