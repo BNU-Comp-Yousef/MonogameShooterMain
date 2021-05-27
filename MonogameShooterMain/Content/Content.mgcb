@@ -116,3 +116,9 @@
 /processorParam:TextureFormat=Color
 /build:Ships/player.png
 
+#begin Sound/Deep.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Sound/Deep.mp3
+

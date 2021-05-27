@@ -31,31 +31,31 @@ namespace MonogameShooterMain.States
         public override void LoadContent()
         {
             var bulletTexture = _content.Load<Texture2D>("Bullet");
-            
-
+          
             _font = _content.Load<SpriteFont>("Font");
 
             _scoreManager = ScoreManager.Load();
 
             _sprites = new List<Sprite>()
-        {
-        new Sprite(_content.Load<Texture2D>("Background/Game"))
-        {
-          Layer = 0.0f,
-          Position = new Vector2(Shooter.ScreenWidth / 2, Shooter.ScreenHeight / 2),
-        }
-        };
+            {
+                 new Sprite(_content.Load<Texture2D>("Background/Game"))
+                 {
+                    Layer = 0.0f,
+                    Position = new Vector2(Shooter.ScreenWidth / 2, Shooter.ScreenHeight / 2),
+                 }
+            };
+            
             var bulletPrefab = new Bullets(bulletTexture)
             {
                 Explosion = new Explosion(new Dictionary<string, Models.Animation>()
             {
-              { "Explode", new Models.Animation(_content.Load<Texture2D>("Explosion"), 3) { FrameSpeed = 0.1f, } }
+                   { "Explode", new Models.Animation(_content.Load<Texture2D>("Explosion"), 3) { FrameSpeed = 0.1f, } }
             })
                 {
                     Layer = 0.5f,
                 }
             };;
-            if (PlayerCount ==1)
+            if (PlayerCount >= 1)
             {
                 AddPlayer(1);
             } //Lambda Code used so continuation occurs when specific code is called.

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using MonogameShooterMain.States;
 using System;
+using Microsoft.Xna.Framework.Media;
 
 namespace MonogameShooterMain
 {
@@ -19,6 +20,8 @@ namespace MonogameShooterMain
 
         private State _currentState;
         private State _nextState;
+
+        private Song backgroundMusic;
 
         public Shooter()
         {
@@ -47,6 +50,8 @@ namespace MonogameShooterMain
 
             _currentState = new MenuState(this, Content);
             _currentState.LoadContent();
+            backgroundMusic = Content.Load<Song>("Sound/Deep");
+            MediaPlayer.Play(backgroundMusic);
 
             _nextState = null;
 
