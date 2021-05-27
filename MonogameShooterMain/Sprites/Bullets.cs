@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using MonogameShooterMain.Managers;
 
 namespace MonogameShooterMain.Sprites
 {
@@ -7,6 +9,8 @@ namespace MonogameShooterMain.Sprites
     public class Bullets : Sprite, CollidableI
     {
         private float _timer;
+
+        
 
         public Explosion Explosion;
 
@@ -68,6 +72,8 @@ namespace MonogameShooterMain.Sprites
 
             var explosion = Explosion.Clone() as Explosion;
             explosion.Position = this.Position;
+            
+            
 
             Children.Add(explosion);
         }

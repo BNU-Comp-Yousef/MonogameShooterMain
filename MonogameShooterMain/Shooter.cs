@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using MonogameShooterMain.States;
 using System;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
+using MonogameShooterMain.Managers;
 
 namespace MonogameShooterMain
 {
@@ -22,6 +24,7 @@ namespace MonogameShooterMain
         private State _nextState;
 
         private Song backgroundMusic;
+        private SoundEffect flameEffect;
 
         public Shooter()
         {
@@ -52,6 +55,8 @@ namespace MonogameShooterMain
             _currentState.LoadContent();
             backgroundMusic = Content.Load<Song>("Sound/Deep");
             MediaPlayer.Play(backgroundMusic);
+            flameEffect = SoundManager.GetSoundEffect("flame");
+
 
             _nextState = null;
 
@@ -72,6 +77,7 @@ namespace MonogameShooterMain
 
                 _nextState = null;
             }
+            
 
             _currentState.Update(gt);
 
